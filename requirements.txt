@@ -1,0 +1,8 @@
+flask
+open-cv
+numpy
+keras
+tensorflow
+future
+gevent
+werkzeug
