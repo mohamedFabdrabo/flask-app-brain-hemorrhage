@@ -91,10 +91,12 @@ flask-app-brain-hemorrhage/
 
 ## Model Details
 
-- **Model Type:** Convolutional Neural Network (CNN) based on YOLOv5
-- **Input Size:** 64x64 grayscale images
-- **Output:** Classification prediction (hemorrhage detected/not detected)
-- **Training Data:** Brain CT scans
+- **Model Type:** YOLOv5 Object Detection
+- **Format:** PyTorch `.pt` model file
+- **Input:** Medical images (CT/MRI scans)
+- **Output:** Detection bounding boxes with confidence scores
+- **Training Data:** Brain CT scans with hemorrhage annotations
+- **Classes:** Hemorrhage detection regions
 
 ## API Endpoints
 

@@ -44,6 +44,7 @@ instance/
 # Uploads and temp files
 uploads/
 *.h5
+*.pt
 *.pb
 *.pkl
 *.joblib
