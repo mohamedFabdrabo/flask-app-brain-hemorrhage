@@ -1,31 +1,101 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
 
-<h2>Image Classifier</h2>
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-2">
+                <i class="fas fa-stethoscope text-danger"></i> Brain Hemorrhage Detection
+            </h1>
+            <p class="lead text-muted">
+                Upload a medical image for analysis using AI-powered detection
+            </p>
+            <hr class="my-4">
+        </div>
 
-<div>
-    <form id="upload-file" method="post" enctype="multipart/form-data">
-        <label for="imageUpload" class="upload-label">
-            Choose...
-        </label>
-        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-    </form>
+        <!-- Info Alert -->
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <h5 class="alert-heading">
+                <i class="fas fa-info-circle"></i> How to use
+            </h5>
+            <ol class="mb-0">
+                <li>Upload a medical brain scan image (PNG, JPG, JPEG)</li>
+                <li>Preview the image in the preview box</li>
+                <li>Click <strong>"Predict!"</strong> to run the detection model</li>
+                <li>View the results instantly</li>
+            </ol>
+            <button type="button" class="btn-close" data-dismiss="alert"></button>
+        </div>
 
-    <div class="image-section" style="display:none;">
-        <div class="img-preview">
-            <div id="imagePreview">
+        <!-- Upload Section -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-upload"></i> Upload Medical Image
+                </h5>
+                
+                <form id="upload-file" method="post" enctype="multipart/form-data">
+                    <div class="upload-area mb-4">
+                        <label for="imageUpload" class="upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i> Choose Image...
+                        </label>
+                        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+                        <small class="text-muted d-block mt-2">
+                            Max file size: 16 MB | Formats: PNG, JPG, JPEG
+                        </small>
+                    </div>
+                </form>
+
+                <!-- Image Preview Section -->
+                <div id="image-section" class="image-section" style="display:none;">
+                    <h6 class="mb-3">Image Preview:</h6>
+                    <div class="img-preview">
+                        <div id="imagePreview"></div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary btn-lg w-100" id="btn-predict">
+                        <i class="fas fa-magic"></i> Predict!
+                    </button>
+                </div>
+
+                <!-- Loading Spinner -->
+                <div class="loader" id="loader" style="display:none; margin: 20px auto;"></div>
+
+                <!-- Results Section -->
+                <div id="results-container" style="display:none;">
+                    <hr>
+                    <h6 class="mb-3">
+                        <i class="fas fa-chart-bar"></i> Prediction Results
+                    </h6>
+                    <div id="result-card" class="alert" role="alert">
+                        <h5 id="prediction-text"></h5>
+                        <p class="mb-0">
+                            <small>
+                                Confidence: <strong id="confidence-score"></strong>%
+                            </small>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Error Messages -->
+                <div id="error-container" style="display:none;">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading">Error</h5>
+                        <p id="error-message" class="mb-0"></p>
+                        <button type="button" class="btn-close" data-dismiss="alert"></button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
-            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+
+        <!-- Warning Alert -->
+        <div class="alert alert-warning" role="alert">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Disclaimer:</strong> This tool is for educational and research purposes only. 
+            Medical diagnosis decisions must be made by qualified healthcare professionals using proper diagnostic procedures.
         </div>
     </div>
-
-    <div class="loader" style="display:none;"></div>
-
-    <h3 id="result">
-        <span> </span>
-    </h3>
-
 </div>
 
 {% endblock %}
