@@ -24,33 +24,22 @@ A Flask-based web application for detecting brain hemorrhages using a trained YO
    cd flask-app-brain-hemorrhage
    ```
 
-2. **Create and activate virtual environment:**
-   ```bash
-   # Windows
-   python -m venv venv
-   venv\Scripts\activate
-   
-   # macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies:**
+2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Add trained model:**
+3. **Add trained model:**
    - Place your trained YOLOv5 model at `models/conv-model_V1.pt`
    - Create the `models/` directory if it doesn't exist
    - Model should be in PyTorch `.pt` format
 
-5. **Run the application:**
+4. **Run the application:**
    ```bash
    python app.py
    ```
 
-6. **Access the app:**
+5. **Access the app:**
    - Open your browser and navigate to `http://127.0.0.1:5000/`
 
 ## Usage
@@ -80,24 +69,6 @@ flask-app-brain-hemorrhage/
     └── index.html        # Main page template
 ```
 
-## Technologies Used
-
-- **Flask** - Web framework
-- **PyTorch** - Deep learning library for model inference
-- **YOLOv5** - Object detection model
-- **OpenCV** - Image processing
-- **Bootstrap 4** - UI framework
-- **JavaScript** - Client-side interactions
-
-## Model Details
-
-- **Model Type:** YOLOv5 Object Detection
-- **Format:** PyTorch `.pt` model file
-- **Input:** Medical images (CT/MRI scans)
-- **Output:** Detection bounding boxes with confidence scores
-- **Training Data:** Brain CT scans with hemorrhage annotations
-- **Classes:** Hemorrhage detection regions
-
 ## API Endpoints
 
 | Endpoint | Method | Description |
@@ -110,21 +81,6 @@ flask-app-brain-hemorrhage/
 - Average prediction time: < 1 second
 - Supports single image predictions
 - Batch processing can be added for multiple images
-
-## Known Limitations
-
-- Currently processes one image at a time
-- Requires high-resolution input images
-- Model file must be in specific location
-
-## Future Enhancements
-
-- [ ] Batch image processing
-- [ ] Result history/comparison
-- [ ] Model accuracy metrics display
-- [ ] Image preprocessing options
-- [ ] Docker support
-- [ ] API documentation (Swagger/OpenAPI)
 
 ## Contributing
 
