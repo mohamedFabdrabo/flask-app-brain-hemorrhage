@@ -76,11 +76,8 @@ flask-app-brain-hemorrhage/
 | `/` | GET | Display main interface |
 | `/predict` | POST | Submit image and get prediction |
 
-## Performance Notes
-
-- Average prediction time: < 1 second
-- Supports single image predictions
-- Batch processing can be added for multiple images
+## Output Example:
+<img width="667" height="610" alt="image" src="https://github.com/user-attachments/assets/909fd1b6-a36d-40f7-a0f4-dd1dde211a47" />
 
 ## Contributing
 
